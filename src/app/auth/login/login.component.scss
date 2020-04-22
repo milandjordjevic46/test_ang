@@ -1,0 +1,22 @@
+.login_center_box {
+    min-width: 60%;
+    min-height: 40%;
+}
+
+.background_auth {
+    background-image:  url('../../../assets/auth_img_2.jpg');
+    background-size: cover;
+}
+
+.bg_silver {
+    background: #f8f8f8;
+    border-radius: 5px;
+}
+
+.opacity_div {
+    background: rgba(4, 4, 4, 0.54);
+}
+
+mat-error {
+    font-size: 12px;
+}

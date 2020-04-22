@@ -1,0 +1,32 @@
+<div class="row background_auth">
+    <div class="col-sm-6 d-none d-sm-block">
+    </div>
+    <div class="col-sm-6 d-flex flex-column justify-content-center align-items-center opacity_div">
+        
+        <div class="login_center_box bg_silver p-4">
+            <div class="text-center" style="color: #3f51b5;">
+                <h1>sERVICEapp<mat-icon aria-hidden="false" aria-label="Example home icon">build</mat-icon>
+                </h1>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="login()" class="example-form d-flex flex-column">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" type="email" matInput placeholder="email@gmail.com">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="password" type="password" matInput placeholder="Password">
+                </mat-form-field>
+                <div class="text-center">
+                    <mat-error *ngIf="hasError">
+                        Email or Password is invalid
+                    </mat-error>
+                </div>
+                <div class="text-center">
+                    <mat-spinner *ngIf="loading" class="mx-auto" [diameter]="30"></mat-spinner>
+                    <button *ngIf="!loading" mat-raised-button color="primary" type="submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
