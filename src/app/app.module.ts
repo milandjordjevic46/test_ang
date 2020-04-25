@@ -12,7 +12,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyInterceptor } from './shared/interceptor/httpconfig.interceptor';
 import { AuthService } from './auth/services/auth.service';
 import { MaterialModule } from './shared/module/material/material.module';
-import { HomeComponent } from './admin/home/home.component';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, SignupComponent],

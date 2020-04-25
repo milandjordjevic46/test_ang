@@ -6,8 +6,7 @@ import { HomeComponent } from './admin/home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/admin', pathMatch: 'full' },
-  // { path: "admin", component: HomeComponent },
+  { path: '', redirectTo: 'admin', pathMatch: 'full' },
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)

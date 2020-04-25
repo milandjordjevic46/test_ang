@@ -8,7 +8,7 @@ $query = 'INSERT INTO users (name, email, country, last_name, service_name)
 $queryS ='SELECT * FROM users
             WHERE email = :email';
 
-$stmt = $db->prepare($query);
+$stmt = $db->prepare($queryS);
 $stmt -> execute(array(
     'email' => $_GET['email']
 ));
@@ -27,7 +27,7 @@ $stmt -> execute(array(
     'service_name' => $_GET['serviceName'],
 ));
 
-echo('{"response": true}');
+echo('{"response": true, "msg": "Email for verification account has been sent to your email"}');
 // if($lines = $stmt->fetch(PDO::FETCH_ASSOC)){
 //     echo('{"response":' . $lines . '}');
 // }

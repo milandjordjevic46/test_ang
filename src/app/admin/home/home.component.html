@@ -1,1 +1,28 @@
-<p>home works!</p>
+<mat-toolbar color="primary">
+  <mat-icon (click)="drawer.toggle()" class="cp">
+    subject
+  </mat-icon>
+  <span class="ml-2">serviceAPP</span>
+</mat-toolbar>
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <div *ngIf="drawer.opened">
+      <div class="">Kosovo</div>
+      <div class="">Srbija</div>
+    </div>
+    <div *ngIf="!drawer.opened">
+        <mat-icon class="cp" color='primary'>home</mat-icon>
+        <mat-icon class="cp" color='primary'>home</mat-icon>
+        <mat-icon class="cp" color='primary'>home</mat-icon>
+        <mat-icon class="cp" color='primary'>home</mat-icon>
+        <mat-icon class="cp" color='primary'>home</mat-icon>
+        <mat-icon class="cp" color='primary'>home</mat-icon>
+        <mat-icon class="cp" color='primary'>home</mat-icon>
+        <a [routerLink]="['users']">Detail</a>
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content" [ngClass]="{'padding_left_container': !drawer.opened, 'padding_left_container_opened':drawer.opened}">
+      <router-outlet ></router-outlet>
+  </div>
+</mat-drawer-container>

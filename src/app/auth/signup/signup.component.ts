@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Country {
   val: string;
@@ -25,7 +26,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private _snackBar: MatSnackBar
   ) {
     this.signupForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -49,12 +51,18 @@ export class SignupComponent implements OnInit {
       (res) => {
         if (res.response) {
           // insert here toast message for success registration
-          console.log(res);
+          this._snackBar.open(res.msg, 'OK', {
+            duration: 5000,
+          });
         }
         this.loading = false;
       },
       (err) => {
-        console.log(err);
+        if (err.error.msg) {
+          this._snackBar.open(err.error.msg, 'OK', {
+            duration: 3000,
+          });
+        }
         this.loading = false;
       }
     );

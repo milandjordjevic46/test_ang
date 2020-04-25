@@ -11,7 +11,8 @@ export class AuthService {
     let params = new HttpParams();
     params = params.append('email', data.email);
     params = params.append('pass', data.password);
-    return this.http.get(environment.api + 'login.php', { params: params });
+    return this.http.get(environment.api + 'login/' + data.email);
+    // return this.http.get(environment.api + 'login.php', { params: params });
   }
   
   signUp(data): Observable<any> {
