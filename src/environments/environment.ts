@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // api: 'http://milandjo.c1.biz/base/'
-  api: 'http://127.0.0.1:8000/api/'
+  api: 'http://localhost:8000/'
 };
 
 /*

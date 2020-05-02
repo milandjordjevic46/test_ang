@@ -3,6 +3,8 @@
     subject
   </mat-icon>
   <span class="ml-2">serviceAPP</span>
+  <span class="example-spacer"></span>
+
 </mat-toolbar>
 <mat-drawer-container class="example-container">
   <mat-drawer #drawer class="example-sidenav" mode="side">
@@ -19,6 +21,9 @@
         <mat-icon class="cp" color='primary'>home</mat-icon>
         <mat-icon class="cp" color='primary'>home</mat-icon>
         <a [routerLink]="['users']">Detail</a>
+        <mat-icon (click)="signOut()" class=" cp">
+          exit_to_app
+        </mat-icon>
     </div>
   </mat-drawer>
 

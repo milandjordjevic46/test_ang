@@ -33,6 +33,7 @@ export class SignupComponent implements OnInit {
       name: ['', Validators.required],
       lastName: ['', Validators.required],
       serviceName: ['', Validators.required],
+      address: '',
       email: ['', [Validators.required, Validators.email]],
       country: ['', Validators.required],
     });
@@ -49,20 +50,17 @@ export class SignupComponent implements OnInit {
 
     this.authService.signUp(this.signupForm.value).subscribe(
       (res) => {
-        if (res.response) {
-          // insert here toast message for success registration
-          this._snackBar.open(res.msg, 'OK', {
+        console.log('res', res);
+          this._snackBar.open('Signed up successfully', 'OK', {
             duration: 5000,
           });
-        }
         this.loading = false;
       },
       (err) => {
-        if (err.error.msg) {
-          this._snackBar.open(err.error.msg, 'OK', {
+        console.log(err)
+          this._snackBar.open(err.error.message || err.statusText, 'OK', {
             duration: 3000,
           });
-        }
         this.loading = false;
       }
     );

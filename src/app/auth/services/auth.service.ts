@@ -8,24 +8,24 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(data): Observable<any> {
-    let params = new HttpParams();
-    params = params.append('email', data.email);
-    params = params.append('pass', data.password);
-    return this.http.get(environment.api + 'login/' + data.email);
+    return this.http.post(environment.api + 'auth/users/', data);
     // return this.http.get(environment.api + 'login.php', { params: params });
   }
-  
+
   signUp(data): Observable<any> {
-    let params = new HttpParams();
-    params = params.append('name', data.name);
-    params = params.append('lastName', data.lastName);
-    params = params.append('email', data.email);
-    params = params.append('serviceName', data.serviceName);
-    params = params.append('country', data.country);
-    return this.http.get(environment.api + 'signup.php', { params: params });
+    return this.http.post(environment.api + 'auth/users/create', data);
   }
 
   getToken(): string {
-    return localStorage.getItem('service_token')
+    return localStorage.getItem('mservice_tok');
+  }
+
+  removeToken(): void {
+    return localStorage.removeItem('mservice_tok');
+  }
+
+  signOut(): Observable<any> {
+    let obj = { token: this.getToken() };
+    return this.http.post(environment.api + 'auth/users/signout', obj);
   }
 }

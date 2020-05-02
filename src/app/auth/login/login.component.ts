@@ -36,8 +36,7 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(this.loginForm.value).subscribe(
       (res) => {
-        console.log(res.response);
-        localStorage.setItem('mservice_tok', '123')
+        localStorage.setItem('mservice_tok', res.token)
         this.router.navigate(['admin/home']);
         this.hasError = false;
         this.loading = false;
